@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>CMS</title>
+        <style>
+            *{font-size:40px;}
+            .nav{background-color:rgb(18, 0, 58);}
+            .nav a{color:white; text-decoration:none;margin:8%}
+            .addstu{
+               
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <div class="nav">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'dept'%}">Department</a>
+                <a href="{% url 'stu'%}">Student</a>
+
+            </div>
+            <h1>Student Page</h1>
+            <a href="{% url 'addstu'%}" class="addstu">Add Student</a>
+            <br/>
+            <table border="5" style="width: 90%; text-align: center;">
+                <tr style="background-color: rgb(28, 90, 116); color: rgb(255, 255, 255);">
+                    
+                    <th>Rno</th>
+                    <th> Name</th>
+                    <th>Dept</th>
+                    <th>Delete</th>
+                </tr>
+                {% for d in data%}
+                <tr>
+                    <td>{{d.rno}}</td>
+                    <td>{{d.name}}</td>
+                    <td>{{d.dept}}</td>
+                    <td><a href="{% url 'remstu' id=d.rno %}" onclick="return confirm(' are you sure?')"></a>Delete</td>
+                    
+                </tr>
+                {%endfor%}
+            </table>
+
+        </center>
+        {{msg}}
+    </body>
+</html>

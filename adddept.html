@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>CMS</title>
+        <style>
+             *{font-size:40px;}
+             .nav{background-color:rgb(18, 0, 58);}
+            .nav a{color:white; text-decoration:none;margin:8%}
+        </style>
+    </head>
+    <body>
+        <center>
+            <div class="nav">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'dept'%}">Department</a>
+                <a href="{% url 'stu'%}">Student</a>
+
+            </div>
+            <h1>Add Dept</h1>
+            <form method="POST">
+                {% csrf_token%}
+                <table>
+                    {{fm.as_table}}
+                </table>
+                <input type="Submit"/>
+            </form>
+            {{msg}}
+        </center>
+    </body>
+</html>
